@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Eventify</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        line-height: 1.6;
+        background-color: #f9f9f9;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .brand img {
+        height: 50px;
+        cursor: pointer;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #007bff;
+      }
+      .login-btn {
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      /* Main Contact Section */
+      .contact-container {
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+      }
+
+      .contact-form {
+        flex: 1 1 450px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form h2 {
+        margin-bottom: 20px;
+        color: #e91e63;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      .contact-form button {
+        background-color: #e91e63;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .contact-form button:hover {
+        background-color: #c2185b;
+      }
+
+      .contact-info {
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .contact-info div {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-info i {
+        margin-right: 10px;
+        color: #e91e63;
+      }
+
+      .map {
+        width: 100%;
+        height: 300px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #222;
+        color: #fff;
+        padding: 2rem;
+      }
+      .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .footer-column {
+        flex: 1 1 200px;
+      }
+      .footer-column h4 {
+        margin-bottom: 1rem;
+      }
+      .footer-column a,
+      .footer-column p {
+        color: #ccc;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 2rem;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+      section.visible {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+        #about,
+        #services {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a class="brand" href="/">
+        <img src="{% static 'img/Logo.jpeg' %}" alt="Logo" />
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/categories">Categories</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <button class="login-btn" onclick="alert('Login popup')">Login</button>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-container">
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="text" placeholder="Subject" />
+          <textarea rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <div>
+          <i class="fas fa-map-marker-alt"></i> Kolar, Bhopal, M.P., India
+        </div>
+        <div><i class="fas fa-phone-alt"></i> +91 98765 43210</div>
+        <div><i class="fas fa-envelope"></i> contact@eventify.com</div>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.2892700524413!2d77.44670331501499!3d23.452108384739125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c42649f7d83c7%3A0x76c10e3c23c3d5c3!2sKolar%20Road%2C%20Bhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1713631943529!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>
+            At Eventify, we turn your celebrations into unforgettable memories
+            with elegant planning and execution.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a>
+          <a href="/services">Services</a>
+          <a href="/categories">Categories</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>Email: contact@eventify.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Eventify. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Section Fade Animation -->
+    <script>
+      const sections = document.querySelectorAll("section, .contact-container");
+      window.addEventListener("scroll", () => {
+        sections.forEach((sec) => {
+          const top = window.scrollY + window.innerHeight;
+          if (top > sec.offsetTop + 100) {
+            sec.classList.add("visible");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

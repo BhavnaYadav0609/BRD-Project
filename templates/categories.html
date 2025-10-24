@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventify - Event Categories</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #fefefe;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .navbar .brand img {
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #e91e63;
+      }
+
+      .login-btn {
+        padding: 8px 18px;
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .login-btn:hover {
+        background-color: #c2185b;
+      }
+
+      /* Categories Section */
+      .categories {
+        padding: 120px 40px 60px;
+        text-align: center;
+      }
+
+      .categories h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #e91e63;
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .category-card {
+        background-color: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      }
+
+      .category-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .category-card h4 {
+        margin: 15px 0;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #222;
+        color: #fff;
+        padding: 2rem;
+      }
+      .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .footer-column {
+        flex: 1 1 200px;
+      }
+      .footer-column h4 {
+        margin-bottom: 1rem;
+      }
+      .footer-column a,
+      .footer-column p {
+        color: #ccc;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 2rem;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+      section.visible {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+        #about,
+        #services {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a class="brand" href="/"
+        ><img src="{% static 'img/Logo.jpeg' %}" alt="Logo"
+      /></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/categories">Categories</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <button class="login-btn" onclick="openLogin()">Login</button>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="categories">
+      <h2>Explore Event Categories</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="{% static 'img/decoration.png' %}" alt="Weddings" />
+          <h4>Weddings</h4>
+        </div>
+        <div class="category-card">
+          <img src="{% static 'img/Photography.png' %}" alt="Birthdays" />
+          <h4>Birthdays</h4>
+        </div>
+        <div class="category-card">
+          <img src="{% static 'img/catering.png' %}" alt="Corporate Events" />
+          <h4>Corporate Events</h4>
+        </div>
+        <div class="category-card">
+          <img
+            src="{% static 'img/EventTop-Rated Service.png' %}"
+            alt="Engagements"
+          />
+          <h4>Engagements</h4>
+        </div>
+        <div class="category-card">
+          <img src="{% static 'img/EventExpertTeam.png' %}" alt="Festivals" />
+          <h4>Festivals</h4>
+        </div>
+        <div class="category-card">
+          <img
+            src="{% static 'img/Events on-timedelivery.png' %}"
+            alt="Baby Showers"
+          />
+          <h4>Baby Showers</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>
+            Eventify brings your celebrations to life with expert planning and
+            creative themes.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a><br />
+          <a href="/services">Services</a><br />
+          <a href="/categories">Categories</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>Email: contact@eventify.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br />
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a><br />
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy;2025 Eventify. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Login Popup JS -->
+    <script>
+      function openLogin() {
+        alert("Login functionality coming soon!");
+      }
+    </script>
+  </body>
+</html>

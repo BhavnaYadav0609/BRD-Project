@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Eventify</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        line-height: 1.6;
+        background-color: #f9f9f9;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .brand img {
+        height: 50px;
+        cursor: pointer;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #007bff;
+      }
+      .login-btn {
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(to right, #fce4ec, #f3e5f5);
+        padding: 6rem 2rem 3rem;
+        text-align: center;
+        margin-top: 80px;
+      }
+
+      header h2 {
+        font-size: 3rem;
+        color: #222;
+        margin-bottom: 1rem;
+      }
+
+      header p {
+        max-width: 800px;
+        margin: auto;
+        font-size: 1.2rem;
+        color: #555;
+      }
+
+      .section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .section h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #e91e63;
+      }
+
+      .why-choose,
+      .team {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .why-card,
+      .team-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        width: 280px;
+        transition: transform 0.3s ease;
+      }
+
+      .why-card:hover,
+      .team-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .why-card img,
+      .team-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .why-card h4,
+      .team-card h4 {
+        color: #222;
+        margin-bottom: 0.5rem;
+      }
+
+      .why-card p,
+      .team-card p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #222;
+        color: #fff;
+        padding: 2rem;
+      }
+      .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .footer-column {
+        flex: 1 1 200px;
+      }
+      .footer-column h4 {
+        margin-bottom: 1rem;
+      }
+      .footer-column a,
+      .footer-column p {
+        color: #ccc;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 2rem;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+      section.visible {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+        #about,
+        #services {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="brand" href="/">
+        <img src="{% static 'img/Logo.jpeg' %}" alt="Logo" />
+      </div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/categories">Categories</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <button class="login-btn" onclick="alert('Login popup')">Login</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <h2>About Us</h2>
+      <p>
+        Welcome to Eventify! We specialize in creating unforgettable events
+        through creativity, precision, and passion. From weddings to corporate
+        functions, our dedicated team ensures every moment is perfect.
+      </p>
+    </header>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+      <h3>Why Choose Us</h3>
+      <div class="why-choose">
+        <div class="why-card">
+          <img
+            src="{% static 'img/EventTop-Rated Service.png' %}"
+            alt="Top-Rated Service"
+          />
+          <h4>Top-Rated Service</h4>
+          <p>
+            We provide exceptional planning and execution for all kinds of
+            events.
+          </p>
+        </div>
+        <div class="why-card">
+          <img src="{% static 'img/EventExpertTeam.png' %}" alt="Expert Team" />
+          <h4>Expert Team</h4>
+          <p>
+            Our passionate professionals bring ideas to life with creativity and
+            skill.
+          </p>
+        </div>
+        <div class="why-card">
+          <img
+            src="{% static 'img/Events on-timedelivery.png' %}"
+            alt="On-Time Delivery"
+          />
+          <h4>On-Time Delivery</h4>
+          <p>
+            We pride ourselves on punctuality to keep your celebration
+            stress-free.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="section">
+      <h3>Meet the Team</h3>
+      <div class="team">
+        <div class="team-card">
+          <img src="{% static 'img/bhavna.jpeg' %}" alt="Bhavna Yadav" />
+          <h4>Bhavna Yadav</h4>
+          <p>Founder & Event Director</p>
+        </div>
+        <div class="team-card">
+          <img
+            src="https://randomuser.me/api/portraits/women/68.jpg"
+            alt="Diksha"
+          />
+          <h4>Diksha</h4>
+          <p>Lead Decor Designer</p>
+        </div>
+        <div class="team-card">
+          <img src="{% static 'img/rim.jpeg' %}" alt="Rimjhim" />
+          <h4>Rimjhim</h4>
+          <p>Client Coordinator</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>
+            At Eventify, we turn your celebrations into unforgettable memories
+            with elegant planning and execution.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a>
+          <a href="/services">Services</a>
+          <a href="/categories">Categories</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>Email: contact@eventify.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Eventify. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Fade Animation -->
+    <script>
+      const sections = document.querySelectorAll(".section");
+      window.addEventListener("scroll", () => {
+        sections.forEach((sec) => {
+          const top = window.scrollY + window.innerHeight;
+          if (top > sec.offsetTop + 100) {
+            sec.classList.add("visible");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

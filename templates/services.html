@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+    <title>Our Services</title>
+    <style>
+ * {
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #fefefe;
+        margin-top: 100px;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .navbar .brand img {
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #e91e63;
+      }
+
+      .login-btn {
+        padding: 8px 18px;
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0s;
+      }
+
+      .login-btn:hover {
+        background-color: #c2185b;
+      }
+
+/* service section start */
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin: 30px 0 10px;
+        color: #333;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 1rem;
+        color: #777;
+      }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+        
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .card-body h3 {
+        margin-bottom: 10px;
+        color: #222;
+      }
+
+      .card-body p {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #f39c12;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .btn:hover {
+        background-color: #e67e22;
+      }
+
+      .img-section {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 0;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+      }
+
+      .service-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 0;
+        max-width: 1100px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .service-row img {
+        width: 45%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .service-row img:hover {
+        transform: scale(1.05); 
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-text {
+        width: 50%;
+        padding: 20px;
+      }
+
+      .service-text h3 {
+        color: #222;
+        margin-bottom: 15px;
+      }
+
+      .service-text p {
+        color: #555;
+        font-size: 1rem;
+      }
+
+      .service-row:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+       /* Footer */
+       footer {
+        background-color: #222;
+        color: #fff;
+        padding: 2rem;
+      }
+      .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .footer-column {
+        flex: 1 1 200px;
+      }
+      .footer-column h4 {
+        margin-bottom: 1rem;
+      }
+      .footer-column a,
+      .footer-column p {
+        color: #ccc;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 2rem;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+      section.visible {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+        #about,
+        #services {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a class="brand" href="/">
+        <img src="{% static 'img/Logo.jpeg' %}" alt="Logo" />
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/categories">Categories</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <a href="{% url 'login' %}"> <button class="login-btn">Login</button></a>
+    </div>
+</div>
+    <!-- Title -->
+    <h2 class="section-title">Meet Our Service Providers</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="{% static 'img/EventManager.png' %}" alt="Event Manager" />
+        <div class="card-body">
+          <h3>Ritika Sharma</h3>
+          <p>
+            Event Manager with 5+ years of experience in weddings, parties &
+            corporate events. Known for personalized planning and creative event
+            execution.
+          </p>
+          <a href="mailto:rohit@example.com" class="btn">Contact</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/Decorator.png' %}" alt="Decorator" />
+        <div class="card-body">
+          <h3>Priya Singh</h3>
+          <p>
+            Decorator with a passion for transforming ordinary spaces into
+            magical venues. Specializes in themed designs and elegant floral
+            work.
+          </p>
+          <a href="mailto:priya@example.com" class="btn">Contact</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/Chef_Caterer.png' %}" alt="Caterer" />
+        <div class="card-body">
+          <h3>Chef Anita Mehra</h3>
+          <p>
+            Multi-cuisine expert offering delicious and hygienic catering for
+            all event types. Famous for authentic Indian, Chinese, and
+            Continental dishes.
+          </p>
+          <a href="mailto:anil@example.com" class="btn">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Services Section -->
+    <h2 class="section-title">Our Event Services</h2>
+    <p class="section-subtitle">
+      We provide complete event solutions with expert planning and stylish
+      execution.
+    </p>
+
+    <section class="img-section">
+      <div class="service-row">
+        <img src="{% static 'img/eventplanning.png' %}" alt="Event Planning" />
+        <div class="service-text">
+          <h3>Event Planning & Management</h3>
+          <p>
+            Whether it's a wedding, corporate event, or social gathering, we
+            manage it all from start to finish. Our services include guest
+            coordination, scheduling, logistics, and real-time troubleshooting.
+            We also provide theme ideation and decor concepts, vendor
+            coordination, and day-of-event supervision. Trust us to bring your
+            dream event to life with efficiency and flair.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <img src="{% static 'img/eventvenues.png' %}" alt="Event Venues" />
+        <div class="service-text">
+          <h3>Beautiful Event Venues</h3>
+          <p>
+            Choose from a selection of stunning banquet halls, garden venues,
+            beachside spots, and more. We help you pick the perfect venue based
+            on guest size, location, and budget. With our strong network, we
+            offer discounts, early access, and theme-ready venue suggestions.
+            Impress your guests with elegance and convenience.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <img
+          src="{% static 'img/decoration.png' %}"
+          alt="Decoration Services"
+        />
+        <div class="service-text">
+          <h3>Creative Decoration Services</h3>
+          <p>
+            Our design team crafts visual masterpieces tailored to your
+            preferences. We specialize in floral backdrops, stage decor,
+            lighting, and props. Whether it's a classic wedding setup or a
+            quirky birthday bash, we ensure a Pinterest-worthy outcome. Enhance
+            ambiance, capture attention, and make memories with beautiful decor.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <img src="{% static 'img/catering.png' %}" alt="Catering Services" />
+        <div class="service-text">
+          <h3>Delicious Catering</h3>
+          <p>
+            Satisfy every palate with a mix of cuisines and dietary options. We
+            provide live counters, buffet setups, and plated meals, all served
+            by professional staff. From traditional Indian feasts to fusion
+            snacks and desserts, we serve food that delights. Hygiene and
+            presentation are our top priorities.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <img
+          src="{% static 'img/photography.png' %}"
+          alt="Photography & Videography"
+        />
+        <div class="service-text">
+          <h3>Photography & Videography</h3>
+          <p>
+            Capture candid emotions and picture-perfect moments with our
+            experienced team. We offer pre-wedding shoots, event-day coverage,
+            drone footage, and cinematic editing. Your memories will be
+            preserved in style—timeless, professional, and heartfelt. Let us
+            turn your event into a story worth reliving.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <img
+          src="{% static 'img/live-entertainment.png' %}"
+          alt="Entertainment"
+        />
+        <div class="service-text">
+          <h3>Live Entertainment</h3>
+          <p>
+            Add excitement to your event with live music, cultural performances,
+            dance troupes, and more. We curate entertainment options that match
+            your theme, audience, and energy. From soothing jazz to energetic DJ
+            nights, we ensure your event has a heartbeat that keeps guests
+            smiling.
+          </p>
+        </div>
+      </div>
+    </section>
+
+   <!-- Footer -->
+   <footer>
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <p>
+          At Eventify, we turn your celebrations into unforgettable memories
+          with elegant planning and execution.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/categories">Categories</a>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p>Email: contact@eventify.com</p>
+        <p>Phone: +91 98765 43210</p>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Eventify. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Fade Animation -->
+  <script>
+    const sections = document.querySelectorAll(".section");
+    window.addEventListener("scroll", () => {
+      sections.forEach((sec) => {
+        const top = window.scrollY + window.innerHeight;
+        if (top > sec.offsetTop + 100) {
+          sec.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+{% comment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventify - Your Event Partner</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+    <style>
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("static/img/image.png") center/cover no-repeat;
+      }
+      .hero p {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="brand">
+        <img src="{% static 'img/Logo.jpeg' %}" alt="Logo" />
+        <h1>RBD</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="about/">About</a>
+        <a href="services/">Services</a>
+        <a href="#Categories">Categories</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div>
+        <h2>Craft Your Dream Event with RBD</h2>
+        <p>
+          We organize unforgettable experiences — from intimate weddings to
+          grand corporate galas.
+        </p>
+        <div class="features">
+          <div class="feature">🏰 Top-rated Venues</div>
+          <div class="feature">🎨 Creative Decoration</div>
+          <div class="feature">👨‍🍳 Gourmet Catering</div>
+          <div class="feature">📸 Premium Photography</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h3>About Us</h3>
+      <p>
+        At Eventify, we bring your celebrations to life. With top-rated venues,
+        creative decorators, professional event managers, and catering solutions
+        – we ensure your event is memorable and stress-free.
+      </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h3>Our Services</h3>
+      <div class="service-cards">
+        <div class="card">
+          <img src="{% static 'img/decoration.png' %}" alt="Decoration" />
+          <h4>Event Decoration</h4>
+          <p>Stylish themes & custom setups that match your event vibe.</p>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/catering.png' %}" alt="Catering" />
+          <h4>Catering Services</h4>
+          <p>Delightful menus crafted to suit every palate and tradition.</p>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/Photography.png' %}" alt="Photography" />
+          <h4>Photography</h4>
+          <p>Freeze your precious moments with our expert photographers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-envelope"></i> contact@eventify.com</p>
+      <p><i class="fas fa-phone"></i> +91-9876543210</p>
+      <p><i class="fas fa-map-marker-alt"></i> Kolar, Bhopal, M.P. ,India</p>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Scroll Fade-In -->
+    <script>
+      const sections = document.querySelectorAll("section");
+      window.addEventListener("scroll", () => {
+        sections.forEach((sec) => {
+          const top = window.scrollY + window.innerHeight;
+          if (top > sec.offsetTop + 100) {
+            sec.classList.add("visible");
+          }
+        });
+      });
+      document.querySelector(".hero").classList.add("visible");
+    </script>
+  </body>
+</html>
+
+{% endcomment %} {% comment %} * { margin: 0; padding: 0; box-sizing:
+border-box; } body { font-family: "Poppins", sans-serif; background: #f7f8fa;
+color: #2c3e50; overflow-x: hidden; } a { text-decoration: none; color: inherit;
+} /* Navbar */ .navbar { display: flex; justify-content: space-between;
+align-items: center; padding: 1rem 2rem; background: black; box-shadow: 0 2px
+12px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; } .brand {
+display: flex; align-items: center; } .brand img { width: 40px; margin-right:
+10px; border-radius: 50%; } .brand h1 { font-size: 1.8rem; color: #ff5722; }
+.nav-links a { margin-left: 20px; font-weight: 500; transition: color 0.3s ease;
+} .nav-links a:hover { color: #ff5722; } /* Hero Section */ .hero { height:
+100vh; display: flex; align-items: center; justify-content: center; text-align:
+center; color: white; padding: 0 2rem; } .hero h2 { font-size: 3rem;
+margin-bottom: 1rem; animation: fadeInDown 1s ease-out; } .hero p { font-size:
+1.2rem; margin-bottom: 2rem; max-width: 600px; margin-inline: auto; animation:
+fadeInUp 1s ease-out; } .features { display: flex; flex-wrap: wrap;
+justify-content: center; gap: 1.5rem; animation: fadeIn 2s ease; } .feature {
+background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255,
+0.2); padding: 1rem 1.5rem; border-radius: 12px; font-weight: 500;
+backdrop-filter: blur(5px); } @keyframes fadeInDown { from { opacity: 0;
+transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to {
+opacity: 1; transform: translateY(0); } } @keyframes fadeIn { from { opacity: 0;
+} to { opacity: 1; } } /* Sections */ section { background-color: #aba4a4;
+padding: 4rem 2rem; opacity: 0; transition: all 0.6s ease-out; } section.visible
+{ opacity: 1; } section h3 { text-align: center; color: #ff5722; font-size:
+2rem; margin-bottom: 1rem; } section p { text-align: center; max-width: 800px;
+margin: auto; font-size: 1.1rem; color: #555; } /* Service Cards */
+.service-cards { display: grid; grid-template-columns: repeat(auto-fit,
+minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; } .card { background: white;
+border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0,
+0.05); text-align: center; padding-bottom: 1.5rem; transition: transform 0.3s
+ease; } .card:hover { transform: translateY(-10px); } .card img { width: 100%;
+height: 220px; object-fit: cover; border-bottom: 4px solid #ff5722; } .card h4 {
+margin-top: 1rem; color: #333; } .card p { font-size: 0.95rem; padding: 0 1rem;
+color: #666; } /* Footer */ .footer { background: #2c3e50; color: white;
+text-align: center; padding: 2rem; } .footer i { margin-right: 8px; } @media
+(max-width: 768px) { .hero h2 { font-size: 2.2rem; } .hero p { font-size: 1rem;
+} } {% endcomment %} {% comment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventify - Your Event Partner</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <style>
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("/static/img/bg.png") center/cover no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a class="brand" href="/">
+        <img src="{% static 'img/Logo.jpeg' %}" alt="Logo" />
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="#Categories">Categories</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div>
+        <h2>Craft Your Dream Event with RBD</h2>
+        <p>
+          We organize unforgettable experiences — from intimate weddings to
+          grand corporate galas.
+        </p>
+        <div class="features">
+          <div class="feature">🏰 Top-rated Venues</div>
+          <div class="feature">🎨 Creative Decoration</div>
+          <div class="feature">👨‍🍳 Gourmet Catering</div>
+          <div class="feature">📸 Premium Photography</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h3>About Us</h3>
+      <p>
+        At Eventify, we bring your celebrations to life. With top-rated venues,
+        creative decorators, professional event managers, and catering solutions
+        – we ensure your event is memorable and stress-free.Event & Wedding
+        Planners, we believe that every celebration is a unique and special
+        moment worth cherishing. As one of the leading event and wedding
+        planning companies in Bhopal and Indore, we specialize in crafting
+        extraordinary events that reflect your personality and style.
+      </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h3>Our Services</h3>
+      <div class="service-cards">
+        <div class="card">
+          <img src="{% static 'img/decoration.png' %}" alt="Event Decoration" />
+          <h4>Event Decoration</h4>
+          <p>Stylish themes & custom setups that match your event vibe.</p>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/catering.png' %}" alt="Catering Services" />
+          <h4>Catering Services</h4>
+          <p>Delightful menus crafted to suit every palate and tradition.</p>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/Photography.png' %}" alt="Photography" />
+          <h4>Photography</h4>
+          <p>Freeze your precious moments with our expert photographers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-envelope"></i> contact@eventify.com</p>
+      <p><i class="fas fa-phone"></i> +91-9876543210</p>
+      <p><i class="fas fa-map-marker-alt"></i> Kolar, Bhopal, M.P., India</p>
+      <div class="social-icons">
+        <a href="https://linkedin.com" target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://instagram.com" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://facebook.com" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+      </div>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JS Scroll Fade -->
+    <script>
+      const sections = document.querySelectorAll("section");
+      window.addEventListener("scroll", () => {
+        sections.forEach((sec) => {
+          const top = window.scrollY + window.innerHeight;
+          if (top > sec.offsetTop + 100) {
+            sec.classList.add("visible");
+          }
+        });
+      });
+      document.querySelector(".hero").classList.add("visible");
+    </script>
+  </body>
+</html>
+
+{% endcomment %} {% comment %} * { margin: 0; padding: 0; box-sizing:
+border-box; } body { font-family: "Poppins", sans-serif; background:
+linear-gradient(120deg, #f9f9f9, #eaeaea); color: #2c3e50; } a {
+text-decoration: none; color: inherit; } /* Navbar */ .navbar { display: flex;
+justify-content: space-between; align-items: center; padding: 1rem 2rem;
+background: #1c1c1c; position: sticky; top: 0; z-index: 1000; } .brand {
+display: flex; align-items: center; } .brand img { width: 45px; height: 45px;
+border-radius: 50%; margin-right: 10px; } .nav-links a { margin-left: 20px;
+font-weight: 500; color: #fff; transition: 0.3s; } .nav-links a:hover { color:
+#ff5722; } /* Hero */ .hero { background: linear-gradient(rgba(0, 0, 0, 0.6),
+rgba(0, 0, 0, 0.6)), url("/static/img/bg.png") center/cover no-repeat; height:
+100vh; display: flex; align-items: center; justify-content: center; text-align:
+center; color: #fff; padding: 0 2rem; } .hero h2 { font-size: 3rem;
+margin-bottom: 1rem; } .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+.features { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content:
+center; } .feature { background: rgba(255, 255, 255, 0.1); padding: 1rem 1.5rem;
+border-radius: 10px; font-weight: 500; backdrop-filter: blur(4px); } /* Sections
+*/ section { padding: 4rem 2rem; opacity: 0; transition: all 0.6s ease-out; }
+section.visible { opacity: 1; } section h3 { text-align: center; font-size:
+2rem; color: #ff5722; margin-bottom: 1rem; } section p { text-align: center;
+max-width: 800px; margin: auto; font-size: 1.1rem; color: #555; } /* Service
+Cards */ .service-cards { display: grid; grid-template-columns: repeat(auto-fit,
+minmax(260px, 1fr)); gap: 2rem; margin-top: 3rem; } .card { background: #fff;
+border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align:
+center; padding: 1rem; transition: transform 0.3s; } .card:hover { transform:
+translateY(-10px); } .card img { width: 100%; height: 200px; object-fit: cover;
+border-radius: 10px; margin-bottom: 1rem; } .card h4 { color: #333; font-size:
+1.2rem; margin-bottom: 0.5rem; } .card p { font-size: 0.95rem; color: #666; } /*
+Footer */ .footer { background: #1c1c1c; color: #fff; text-align: center;
+padding: 2rem; } .footer p { margin: 0.4rem 0; } .social-icons { margin-top:
+1rem; } .social-icons a { margin: 0 10px; color: #fff; font-size: 1.2rem;
+transition: color 0.3s; } .social-icons a:hover { color: #ff5722; } @media
+(max-width: 768px) { .hero h2 { font-size: 2rem; } .hero p { font-size: 1rem; }
+} {% endcomment %}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventify - Your Event Partner</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="{% static 'css/home.css' %}" /> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        line-height: 1.6;
+        background-color: #f9f9f9;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: rgb(30, 28, 28);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .brand img {
+        height: 50px;
+        cursor: pointer;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #007bff;
+      }
+      .login-btn {
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .hero {
+        margin-top: 80px;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("/static/img/bg.png") center/cover no-repeat;
+        color: #fff;
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+      .features {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .feature {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+      }
+      #about,
+      #services {
+        padding: 4rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      #about .about-content,
+      #about .image,
+      .card {
+        flex: 1 1 300px;
+      }
+      #about img,
+      .card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .service-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+      }
+      .card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      footer {
+        background-color: #222;
+        color: #fff;
+        padding: 2rem;
+      }
+      .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .footer-column {
+        flex: 1 1 200px;
+      }
+      .footer-column h4 {
+        margin-bottom: 1rem;
+      }
+      .footer-column a,
+      .footer-column p {
+        color: #ccc;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 2rem;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+      section.visible {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+        #about,
+        #services {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a class="brand" href="/">
+        <img src="{% static 'img/Logo.jpeg' %}" alt="Logo" />
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="about">About</a>
+        <a href="services">Services</a>
+        <a href="/categories">Categories</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <a href="{% url 'login' %}"> <button class="login-btn">Login</button></a>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h2>Craft Your Dream Event with RBD</h2>
+        <p>
+          We organize unforgettable experiences — from intimate weddings to
+          grand corporate galas.
+        </p>
+        <div class="features">
+          <div class="feature">🏰 Top-rated Venues</div>
+          <div class="feature">🎨 Creative Decoration</div>
+          <div class="feature">👨‍🍳 Gourmet Catering</div>
+          <div class="feature">📸 Premium Photography</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-content">
+        <h3>About Us</h3>
+        <p>
+          At Eventify, we bring your celebrations to life. With top-rated
+          venues, creative decorators, professional event managers, and catering
+          solutions – we ensure your event is memorable and stress-free.
+        </p>
+      </div>
+      <div class="image">
+        <img src="{% static 'img/about.png' %}" alt="About Eventify" />
+      </div>
+    </section>
+
+    <section id="services">
+      <h3>Our Services</h3>
+      <div class="service-cards">
+        <div class="card">
+          <img src="{% static 'img/decoration.png' %}" alt="Event Decoration" />
+          <h4>Event Decoration</h4>
+          <p>Stylish themes & custom setups that match your event vibe.</p>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/catering.png' %}" alt="Catering Services" />
+          <h4>Catering Services</h4>
+          <p>Delightful menus crafted to suit every palate and tradition.</p>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/Photography.png' %}" alt="Photography" />
+          <h4>Photography</h4>
+          <p>Freeze your precious moments with our expert photographers.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>Your trusted partner for unforgettable events.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a>
+          <a href="/">Services</a>
+          <a href="#">Categories</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>Email: contact@eventify.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy;2025 Eventify. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function openLogin() {
+        alert("Login popup/modal goes here");
+      }
+
+      const sections = document.querySelectorAll("section");
+      window.addEventListener("scroll", () => {
+        sections.forEach((sec) => {
+          const top = window.scrollY + window.innerHeight;
+          if (top > sec.offsetTop + 100) {
+            sec.classList.add("visible");
+          }
+        });
+      });
+      document.querySelector(".hero").classList.add("visible");
+    </script>
+  </body>
+</html>
